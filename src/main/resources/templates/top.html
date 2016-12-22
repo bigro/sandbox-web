@@ -13,27 +13,33 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-7">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th class="col-xs-2">利用者ID</th>
-                    <th class="col-xs-2">利用者名</th>
-                    <th class="col-xs-1"></th>
-                    <th class="col-xs-1"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="user : ${users.list()}">
-                    <td th:text="${user.identifier()}"/>
-                    <td th:text="${user.name()}"/>
-                    <td><a class="btn btn-warning btn-sm" th:href="@{/user/update(userId=${user.identifier()})}">更新</a></td>
-                    <td><a class="btn btn-danger btn-sm"
-                           th:href="@{/user/delete(userId=${user.identifier()})}">削除</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <form action="#">
+            <div class="col-xs-7">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th class="col-xs-2">利用者ID</th>
+                        <th class="col-xs-2">利用者名</th>
+                        <th class="col-xs-1"></th>
+                        <th class="col-xs-1"></th>
+                        <th class="col-xs-1"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="user : ${users.list()}">
+                        <td th:text="${user.identifier()}"/>
+                        <td th:text="${user.name()}"/>
+                        <td><a class="btn btn-warning btn-sm"
+                               th:href="@{/user/update(userId=${user.identifier()})}">更新</a>
+                        </td>
+                        <td><a class="btn btn-danger btn-sm"
+                               th:href="@{/user/delete(userId=${user.identifier()})}">削除</a></td>
+                        <td><input type="checkbox" class="checkbox"></input></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
     </div>
 </div>
 <footer th:include="fragments/layout :: footer"/>
